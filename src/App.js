@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+
+import FullItem from 'scenes/FullItem';
+import ItemList from 'components/ItemList';
+import FeaturedItem from 'components/Item/FeaturedItem';
+
+import { getProducts } from 'services/StoreData';
 
 class App extends Component {
   render() {
+    const product = getProducts()[0];
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="App" style={{padding: '2rem'}}>
+        <FullItem {...product} />
+        <hr />
+        <ItemList items={getProducts()} />
+        <hr />
+        <FeaturedItem {...product} />
       </div>
     );
   }
