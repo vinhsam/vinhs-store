@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import './App.css';
 
+import Home from 'scenes/Home';
+import AllItems from 'scenes/AllItems';
 import FullItem from 'scenes/FullItem';
-import ItemList from 'components/ItemList';
-import FeaturedItem from 'components/Item/FeaturedItem';
+import Button from 'components/Button';
 
-import { getProducts } from 'services/StoreData';
+const Nav = styled.div`
+  padding-bottom: 2rem;
+
+  & > * {
+    padding-right: 1rem;
+  }
+`;
 
 class App extends Component {
   render() {
-    const product = getProducts()[0];
-
     return (
-      <div className="App" style={{padding: '2rem'}}>
-        <FullItem {...product} />
-        <hr />
-        <ItemList items={getProducts()} />
-        <hr />
-        <FeaturedItem {...product} />
+      <Router>
+        <div>
+          <div style={{ padding: '2rem' }}>
+            <Nav>
+              <Link to="/">
+                <Button>Home</Button>
+              </Link>
+              <Link to="/items">
+                <Button>Items</Button>
+              </Link>
+            </Nav>
+
+            <Route exact path="/" component={Home} />
+            <Route path="/items" component={AllItems} />
+            <Route path="/item/:id" component={FullItem} />
+          </div>
         </div>
+      </Router>
     );
   }
 }

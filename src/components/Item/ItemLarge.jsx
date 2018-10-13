@@ -6,7 +6,9 @@ import ItemPrice from 'components/ItemPrice';
 import Button from 'components/Button';
 
 const StyledItemLarge = styled.div`
-    background: #f0f0f0;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 0 5px #ccc;
     display: flex;
     align-items: center;
     padding: 2rem;
