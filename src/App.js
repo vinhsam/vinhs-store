@@ -19,7 +19,7 @@ class App extends Component {
         <ItemList items={getProducts()} />
         <hr />
         <FeaturedItem {...product} />
-      </div>
+        </div>
     );
   }
 }

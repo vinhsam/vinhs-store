@@ -33,14 +33,14 @@ const Info = styled.div`
 
 export default function ListItem({ name, price, image, ...props }) {
     return (
-        <StyledListItem>
-            <ImageContainer>
-                <Image src={`/images/${image}`} />
-            </ImageContainer>
-            <Info>
-                <ItemName>{name}</ItemName>
-                <ItemPrice price={price} />
-            </Info>
-        </StyledListItem>
+            <StyledListItem>
+                <ImageContainer>
+                    <Image src={`/images/${image}`} />
+                </ImageContainer>
+                <Info>
+                    <ItemName>{name}</ItemName>
+                    <ItemPrice price={price} />
+                </Info>
+            </StyledListItem>
     );
 }

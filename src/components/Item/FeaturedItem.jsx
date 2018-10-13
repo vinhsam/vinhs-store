@@ -29,10 +29,10 @@ const ImageContainer = styled.div`
 
     & .featured-title {
         background: #eee;
-        padding: 5px;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
     }
 `;
 
@@ -53,17 +53,17 @@ const StyledItemPrice = styled(ItemPrice)`
 export default function FeaturedItem({ name, price, image, ...props }) {
     return (
         <StyledFeaturedItem>
-            <ImageContainer>
+                <ImageContainer>
                 <div className="featured-title">Featured Item</div>
-                <Image src={`/images/${image}`} />
-            </ImageContainer>
+                    <Image src={`/images/${image}`} />
+                </ImageContainer>
             <ItemContainer>
                 <div>
                     <StyledItemName>{name}</StyledItemName>
                     <StyledItemPrice price={price} />
                 </div>
                 <div>
-                    <Button>View Item</Button>
+                        <Button>View Item</Button>
                 </div>
             </ItemContainer>
         </StyledFeaturedItem>
