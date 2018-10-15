@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ItemLarge from 'components/Item/ItemLarge';
+import { ItemLarge } from 'components/Item';
 import ErrorPage from 'scenes/ErrorPage';
 
 import { getProductById } from 'services/StoreData';
