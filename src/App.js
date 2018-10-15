@@ -20,21 +20,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <div style={{ padding: '2rem' }}>
-            <Nav>
-              <Link to="/">
-                <Button>Home</Button>
-              </Link>
-              <Link to="/items">
-                <Button>Items</Button>
-              </Link>
-            </Nav>
+        <div style={{ padding: '2rem' }}>
+          <Nav>
+            <Link to="/">
+              <Button>Home</Button>
+            </Link>
+            <Link to="/items">
+              <Button>Items</Button>
+            </Link>
+          </Nav>
 
-            <Route exact path="/" component={Home} />
-            <Route path="/items" component={AllItems} />
-            <Route path="/item/:id" component={FullItem} />
-          </div>
+          <Route exact path="/" component={Home} />
+          <Route path="/items" component={AllItems} />
+          <Route path="/item/:id" component={FullItem} />
         </div>
       </Router>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FontAwesome from 'react-fontawesome';
 
 import ItemName from 'components/ItemName';
 import ItemPrice from 'components/ItemPrice';
@@ -43,7 +44,10 @@ export default function ItemLarge({name, price, image, ...props }) {
             <Info>
                 <StyledItemName>{name}</StyledItemName>
                 <StyledItemPrice price={price} />
-                <Button>Add to Cart</Button>
+                <Button>
+                    <FontAwesome name="shopping-cart" />
+                    &nbsp;&nbsp;Add to Cart
+                </Button>
             </Info>
         </StyledItemLarge>
     );
