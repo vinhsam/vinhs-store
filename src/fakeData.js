@@ -107,6 +107,15 @@ const products = [
         image: 'cactus.png',
         category: 'plants',
     },
+    {
+        id: 12,
+        name: 'Squished Shibe',
+        short_description: 'Not walk. Very tire fren! Plez stahp!',
+        description: 'Not walk. Very tire fren! Plez stahp!',
+        price: 1750.00,
+        image: 'squished-shibe.png',
+        category: 'pets',
+    },
 ];
 
 const categories = [

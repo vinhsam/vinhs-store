@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ItemLarge from 'components/Item/ItemLarge'
+import ItemLarge from 'components/Item/ItemLarge';
+import ErrorPage from 'scenes/ErrorPage';
 
 import { getProductById } from 'services/StoreData';
 
@@ -14,9 +15,13 @@ export default function FullItem({ match, ...props }) {
     const product = getProductById(productId);
 
     return (
-        <div>
-            <ItemLarge {...product} />
-            <Description>{product.description}</Description>
-        </div>
+        product
+            ? (
+                <div>
+                    <ItemLarge {...product} />
+                    <Description>{product.description}</Description>
+                </div>
+            )
+            : <ErrorPage>Item not found.</ErrorPage>
     );
 }
