@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Button = styled.button`
     background: orange;
@@ -14,3 +15,8 @@ const Button = styled.button`
 `;
 
 export default Button;
+
+
+Button.propTypes = {
+    children: PropTypes.any.isRequired,
+};

@@ -5,5 +5,5 @@ import ItemList from 'components/ItemList';
 import { getProducts } from 'services/StoreData';
 
 export default function AllItems(props) {
-    return <ItemList items={getProducts()} />
+    return <ItemList title="All Products" items={getProducts()} />
 }

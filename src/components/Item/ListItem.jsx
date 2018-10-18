@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import ItemName from 'components/ItemName';
 import ItemPrice from 'components/ItemPrice';
+import ItemImage from 'components/ItemImage';
 
 const StyledLink = styled(Link)`
     text-decoration: none;
@@ -17,22 +19,6 @@ const StyledListItem = styled.div`
     width: 250px;
 `;
 
-const ImageContainer = styled.div`
-    background: #f6f6f6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem 0;
-    min-height: 150px;
-    min-width: 250px;
-`;
-
-const Image = styled.img`
-    max-height: 134px;
-    max-width: 234px;
-    padding: 0.5rem;
-`;
-
 const Info = styled.div`
     text-align: center;
     padding: 1rem;
@@ -42,9 +28,7 @@ export default function ListItem({ id, name, price, image, ...props }) {
     return (
         <StyledLink to={`/item/${id}`}>
             <StyledListItem>
-                <ImageContainer>
-                    <Image src={`/images/${image}`} />
-                </ImageContainer>
+                <ItemImage image={image} height={150} width={250} />
                 <Info>
                     <ItemName>{name}</ItemName>
                     <ItemPrice price={price} />
@@ -53,3 +37,10 @@ export default function ListItem({ id, name, price, image, ...props }) {
         </StyledLink>
     );
 }
+
+ListItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+};

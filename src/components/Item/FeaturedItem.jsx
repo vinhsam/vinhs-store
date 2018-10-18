@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import ItemName from 'components/ItemName';
 import ItemPrice from 'components/ItemPrice';
+import ItemImage from 'components/ItemImage';
 import Button from 'components/Button';
 
 const StyledFeaturedItem = styled.div`
@@ -35,22 +37,6 @@ const FeaturedTitle = styled.div`
     font-weight: bold;
 `;
 
-const ImageContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #f6f6f6;
-    height: 150px;
-    width: 250px;
-`;
-
-const Image = styled.img`
-    max-height: 134px;
-    max-width: 234px;
-    padding: 0.5rem;
-`;
-
 const StyledItemName = styled(ItemName)`
     font-size: 2rem;
 `;
@@ -64,9 +50,7 @@ export default function FeaturedItem({ id, name, price, image, ...props }) {
         <StyledFeaturedItem>
             <div>
                 <FeaturedTitle className="featured-title">Featured Item</FeaturedTitle>
-                <ImageContainer>
-                    <Image src={`/images/${image}`} />
-                </ImageContainer>
+                <ItemImage image={image} height={150} width={250} />
             </div>
             <Info>
                 <div>
@@ -82,3 +66,10 @@ export default function FeaturedItem({ id, name, price, image, ...props }) {
         </StyledFeaturedItem>
     );
 }
+
+FeaturedItem.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+};

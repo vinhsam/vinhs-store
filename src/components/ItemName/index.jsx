@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ItemName = styled.div`
     font-weight: bold;
@@ -6,3 +7,7 @@ const ItemName = styled.div`
 `;
 
 export default ItemName;
+
+ItemName.propTypes = {
+    children: PropTypes.any.isRequired,
+};

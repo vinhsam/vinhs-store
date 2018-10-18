@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 
 import ItemName from 'components/ItemName';
 import ItemPrice from 'components/ItemPrice';
+import ItemImage from 'components/ItemImage';
 import Button from 'components/Button';
 
 const StyledItemLarge = styled.div`
@@ -15,9 +17,11 @@ const StyledItemLarge = styled.div`
     padding: 2rem;
 `;
 
-const Image = styled.img`
-    max-height: 300px;
-    max-width: 300px;
+const StyledItemImage = styled(ItemImage)`
+    && {
+        background: transparent;
+        padding: 0;
+    }
 `;
 
 const Info = styled.div`
@@ -35,12 +39,10 @@ const StyledItemPrice = styled(ItemPrice)`
     padding: 1rem;
 `;
 
-export default function ItemLarge({name, price, image, ...props }) {
+export default function ItemLarge({ id, name, price, image, ...props }) {
     return (
         <StyledItemLarge>
-            <div>
-                <Image src={`/images/${image}`} />
-            </div>
+            <StyledItemImage image={image} height={300} width={300} />
             <Info>
                 <StyledItemName>{name}</StyledItemName>
                 <StyledItemPrice price={price} />
@@ -52,3 +54,10 @@ export default function ItemLarge({name, price, image, ...props }) {
         </StyledItemLarge>
     );
 }
+
+ItemLarge.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+};
