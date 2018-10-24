@@ -21,8 +21,12 @@ const initialState = {
 
 const middleWare = [
     routerMiddleware(history),
-    logger,
 ];
+
+if (process.env.NODE_ENV === 'development') {
+    middleware.push(logger);
+}
+
 
 const store = createStore(
     connectRouter(history)(rootReducer),

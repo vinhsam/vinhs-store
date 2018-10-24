@@ -35,6 +35,8 @@
     "@storybook/addon-links": "^4.0.0-rc.0",
     "@storybook/react": "^4.0.0-rc.0",
     "babel-core": "^6.26.3",
+    "jest-styled-components": "^6.2.2",
+    "react-test-renderer": "^16.5.2",
     "storybook-react-router": "^1.0.1"
   }
 }
